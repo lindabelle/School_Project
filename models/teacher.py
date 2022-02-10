@@ -1,4 +1,4 @@
-class Teacher:
+class Teacher(Human):
     list_of_marks = []
 
     def __init__(self, subject: str, mark: int, student_number: int):
