@@ -1,10 +1,9 @@
 from models.Human import Human
 from models.Subject import Subject
 
-
 class Teacher(Human):
 
-    def __init__(self, surname: str, firstname: str, lastname: str, subject: Subject, mark: int, student_number: int):
+    def __init__(self, surname: str, firstname: str, lastname: str, subject: Subject):
         super().__init__(surname, firstname, lastname)
         self.__subject = subject
 

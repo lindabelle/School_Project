@@ -1,15 +1,19 @@
 from models.Human import Human
-from models.Subject import Subject
-
+from models.SubjectMark import SubjectMark
 
 class Student(Human):
     counter = 1
 
-    def __init__(self, surname: str, firstname: str, lastname: str, grade: int):
+    def __init__(self, surname: str, firstname: str, lastname: str, grade: int, subjects: list):
         super().__init__(surname, firstname, lastname)
         self.__grade = grade
         self.__student_number = Student.counter
         Student.counter += 1
+        self.diary = []
+        for subject in subjects:
+            self.diary.append(SubjectMark(subject))
+
+
 
     def __str__(self):
         return f"{self.__student_number},{super().__str__()}"
