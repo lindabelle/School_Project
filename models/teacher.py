@@ -1,7 +1,7 @@
 class Teacher:
     list_of_marks = []
 
-    def __init__(self,subject:str,mark: int, student_number:int):
+    def __init__(self, subject: str, mark: int, student_number: int):
         self.__subject = subject
         self._mark = mark
         self.__student_number = student_number
@@ -27,7 +27,4 @@ class Teacher:
     def delete_mark(self):
         if len(Teacher.list_of_marks) < 1:
             raise ValueError
-        Teacher.list_of_marks.remove[] # тут pop не подходит, тк нужно удалить отметку не последнюю,а ошибочную
-
-
-
+        Teacher.list_of_marks.remove[]  # тут pop не подходит, тк нужно удалить отметку не последнюю,а ошибочную
