@@ -1,5 +1,7 @@
 from models.Human import Human
 from models.SubjectMark import SubjectMark
+import statistics
+
 
 class Student(Human):
     counter = 1
@@ -13,6 +15,9 @@ class Student(Human):
         for subject in subjects:
             self.diary.append(SubjectMark(subject))
 
+    def diary_average(self):
+        average = list(filter(lambda i: i.mark > 0, self.diary))
+        return sum(i.mark for i in average) / len(average)
 
 
     def __str__(self):
@@ -25,3 +30,4 @@ class Student(Human):
     @property
     def grade(self):
         return self.__grade
+
