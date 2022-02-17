@@ -1,19 +1,20 @@
 from models.Human import Human
+from models.Subject import Subject
 from models.SubjectMark import SubjectMark
 
 
 class Teacher(Human):
 
-    def __init__(self, surname: str, firstname: str, lastname: str, subject: Subject, mark: int):
+    def __init__(self, surname: str, firstname: str, lastname: str, subject: Subject):
         super().__init__(surname, firstname, lastname)
         self.__subject = subject
-        self.__mark = mark
-        self.__journal = []
-        for mark in subject:
-            if mark == 0:
-                raise ValueError
-            else:
-                self.__journal.append(mark)
+
+    def set_mark(self, mark,student_number, students_list):
+        for student in students_list:
+            if student_number == student.student_number:
+                student.get_mark(mark,self)
+                break
+
 
     def __str__(self):
         return f"{super().__str__()}, {self.__subject}"
@@ -22,9 +23,7 @@ class Teacher(Human):
     def subject(self):
         return self.__subject
 
-    @property
-    def mark(self):
-        return self.__mark
+
 
 
 
