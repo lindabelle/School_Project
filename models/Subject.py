@@ -1,9 +1,9 @@
 class Subject:
-    number_counter = 1
+    __number_counter = 1
 
     def __init__(self, name: str):
-        self.__number = Subject.number_counter
-        Subject.number_counter += 1
+        self.__number = Subject.__number_counter
+        Subject.__number_counter += 1
         self.__name = name
 
     @property

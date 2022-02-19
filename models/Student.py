@@ -3,13 +3,13 @@ from models.SubjectMark import SubjectMark
 
 
 class Student(Human):
-    counter = 1
+    __counter = 1
 
     def __init__(self, surname: str, firstname: str, lastname: str, grade: int, subjects: list):
         super().__init__(surname, firstname, lastname)
         self.__grade = grade
-        self.__student_number = Student.counter
-        Student.counter += 1
+        self.__student_number = Student.__counter
+        Student.__counter += 1
         self.__diary = []
         for subject in subjects:
             self.__diary.append(SubjectMark(subject))
