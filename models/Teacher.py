@@ -12,11 +12,8 @@ class Teacher(Human):
         self.__teacher_number = Teacher.__counter
         Teacher.__counter += 1
 
-    def set_mark(self, mark, student_number, students_list):
-        for student in students_list:
-            if student_number == student.student_number:
-                student.get_mark(mark, self)
-                break
+    def set_mark(self, mark, student_number, students):
+        students[student_number].get_mark(mark, self)
 
     def __str__(self):
         return f"{self.__teacher_number}, {super().__str__()}, {self.__subject}"

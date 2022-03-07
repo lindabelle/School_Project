@@ -16,7 +16,7 @@ class School:
     def check_password(self, password):
         if password == self.__password:
             return True
-        return False
+        raise ValueError("Incorrect password")
 
     def add_teacher(self, surname: str, firstname: str, lastname: str, subject: Subject):
         new_teacher = Teacher(surname, firstname, lastname, subject)
@@ -29,11 +29,25 @@ class School:
         return self.__teachers[teacher_number]
 
     def add_student(self, surname: str, firstname: str, lastname: str, grade: int):
-        new_student = Student(surname, firstname, lastname, grade)
+        new_student = Student(surname, firstname, lastname, grade, self.__subjects)
         self.__students.update({new_student.student_number: new_student})
 
     def delete_student(self, student_number):
         self.__students.pop(student_number)
 
+    def get_student(self, student_number):
+        return self.__students[student_number]
+
+    @property
+    def subjects(self):
+        return self.__subjects
+
+    @property
+    def teachers(self):
+        return self.__teachers
+
+    @property
+    def students(self):
+        return self.__students
 
 
